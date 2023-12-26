@@ -14,28 +14,14 @@ from email.mime.application import MIMEApplication
 import datetime
 import openpyxl
 import pandas as pd
-import subprocess
-import shutil
 from bs4 import BeautifulSoup
 import time
 import datetime
-import pyautogui
-import pyperclip
-import csv
-import sys
 import os
 import math
-import requests
-import re
-import random
-from datetime import datetime, date, timedelta
-import numpy
 import datetime
-from window import Ui_MainWindow
-import json
-import pprint
 import pymysql
-import ast
+
 
 import difflib
 
@@ -332,8 +318,8 @@ def GetDB(daysAgo):
         # 어제의 00:00:00과 오늘의 00:00:00 계산
 
         today = datetime.datetime.now().date()
-        yesterday_start = datetime.datetime(today.year, today.month, today.day) - timedelta(days=daysAgo)
-        yesterday_end = datetime.datetime(today.year, today.month, today.day) - timedelta(days=daysAgo-1)
+        yesterday_start = datetime.datetime(today.year, today.month, today.day) - datetime.timedelta(days=daysAgo)
+        yesterday_end = datetime.datetime(today.year, today.month, today.day) - datetime.timedelta(days=daysAgo-1)
         print("yesterday_start:",yesterday_start,"/ yesterday_start_TYPE:",type(yesterday_start))
         print("yesterday_end:",yesterday_end,"/ yesterday_end_TYPE:",type(yesterday_end))
         # 어제와 오늘의 시작 시간을 UNIX 타임스탬프로 변환
