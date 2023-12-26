@@ -677,8 +677,19 @@ while True:
         with open('checkResult.json', 'w', encoding='utf-8-sig') as f:
             json.dump(checkResult, f, indent=2, ensure_ascii=False)
 
+    # 리스트의 각 요소를 튜플로 변환
+    tuple_list = [tuple(sublist) for sublist in checkResult]
+
+    # 중복 제거
+    unique_tuples = set(tuple_list)
+
+    # 다시 리스트로 변환
+    unique_lists = [list(t) for t in unique_tuples]
+
+    checkResult=unique_lists
+
     email='wsgt18@naver.com'
-    SendMail(checkResult,email)
+    SendMail(unique_lists,email)
     time.sleep(60*60)
 
     
